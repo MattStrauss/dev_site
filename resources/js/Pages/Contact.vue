@@ -40,9 +40,9 @@
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-start">
                             Start Date
                         </label>
-                        <div class="relative" id="grid-start">
+                        <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    v-model="fields.start" :class="(errors && errors.start) ? 'border-red-500' : ''">
+                                    v-model="fields.start" :class="(errors && errors.start) ? 'border-red-500' : ''" id="grid-start">
                                 <option> </option>
                                 <option>ASAP</option>
                                 <option>Within the next Month</option>
@@ -59,9 +59,9 @@
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-work-type">
                             Work Type
                         </label>
-                        <div class="relative" id="grid-work-type">
+                        <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    v-model="fields.type" :class="(errors && errors.type) ? 'border-red-500' : ''" >
+                                    v-model="fields.type" :class="(errors && errors.type) ? 'border-red-500' : ''" name="type" id="grid-work-type">
                                 <option> </option>
                                 <option>Full Stack</option>
                                 <option>Backend</option>
@@ -79,9 +79,9 @@
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" for="grid-remote">
                             Remote?
                         </label>
-                        <div class="relative" id="grid-remote">
+                        <div class="relative">
                             <select class="block appearance-none w-full bg-gray-200 border border-gray-200 text-gray-700 py-3 px-4 pr-8 mb-3 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                    v-model="fields.remote" :class="(errors && errors.remote) ? 'border-red-500' : ''">
+                                    v-model="fields.remote" :class="(errors && errors.remote) ? 'border-red-500' : ''" name="remote"  id="grid-remote">
                                 <option></option>
                                 <option>Yes</option>
                                 <option>Mostly</option>
@@ -101,14 +101,15 @@
                         <label class="block uppercase tracking-wide text-xs font-bold mb-2" id="grid-description">
                             Job Description
                         </label>
-                        <textarea class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-                                  v-model="fields.description" :class="(errors && errors.description) ? 'border-red-500' : ''" id="grid-description">
+                        <textarea rows="8" class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                                  v-model="fields.description" :class="(errors && errors.description) ? 'border-red-500' : ''"
+                                  name="description" id="grid-description" placeholder="Some details you'd like to share about the job...">
                         </textarea>
                         <p v-if="errors && errors.description" class="text-red-400 text-xs italic">{{ errors.description[0] }}</p>
                     </div>
                 </div>
 
-                <input v-model="fields.custom" type="hidden" id="custom" name="custom" value="">
+                <input v-model="fields.custom" type="hidden" id="custom" name="custom">
 
                 <div class="flex items-center justify-between">
                     <button @click="clearForm" class="bg-gray-500 hover:bg-gray-400 text-white font-bold py-2 px-6 rounded focus:outline-none focus:shadow-outline" type="button">
@@ -129,7 +130,7 @@
                 <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3">  </div>
                 <p class="italic text-gray-100 text-hairline pt-2">
                     If you'd like to hire me to work on your project or application, please fill out the form above with the details so we can discuss it.
-                    Feel free to check out my <inertia-link class="hover:text-yellow-500" href="/projects"> personal projects </inertia-link> and my contributions on
+                    Feel free to check out my <Link class="hover:text-yellow-500" href="/projects"> personal projects </Link> and contributions on
                     <a class="hover:text-yellow-500" href="https://github.com/MattStrauss"> my GitHub page</a>.
                 </p>
             </div>
@@ -142,6 +143,7 @@
 
 import Layout from '../Shared/Layout'
 import { Head } from '@inertiajs/inertia-vue3'
+import { Link } from '@inertiajs/inertia-vue3'
 
 export default {
     name: "Contact",
@@ -149,6 +151,7 @@ export default {
     components: {
         Layout,
         Head,
+        Link,
     },
 
     data() {
@@ -159,6 +162,7 @@ export default {
             processing: false,
         }
     },
+
     methods: {
         submit() {
             this.processing = true;
@@ -175,6 +179,7 @@ export default {
                 }
             });
         },
+
         clearForm() {
             this.fields = {};
             this.processing = false;
