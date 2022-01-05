@@ -19297,22 +19297,14 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @inertiajs/inertia-vue3 */ "./node_modules/@inertiajs/inertia-vue3/dist/index.js");
 
 
-var skills = {
-  'backend': ['PHP', 'SQL', 'MySQL', 'Laravel', 'RubyOnRails', 'Ruby', 'Redis', 'C', 'C++', 'Java', 'Swift', 'Mips/Assembly', 'VHDL', 'Livewire'].sort(),
-  'frontend': ['HTML', 'Javascript', 'CSS', 'Tailwind', 'Bootstrap', 'Alpine.js', 'React.js', 'Vue.js', 'Inertia.js', 'Angular.js', 'Laravel Blade'].sort(),
-  'testing': ['PHPUnit', 'JUnit', 'Laravel Dusk', 'Codeception', 'Jest', 'Selenium'].sort(),
-  'misc': ['WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'PHP Storm', 'Laravel Spark'].sort()
-};
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
   name: "Home",
   components: {
     Layout: _Shared_Layout__WEBPACK_IMPORTED_MODULE_0__["default"],
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head
   },
-  data: function data() {
-    return {
-      skills: skills
-    };
+  props: {
+    skills: Object
   }
 });
 
@@ -19341,57 +19333,7 @@ __webpack_require__.r(__webpack_exports__);
   },
   data: function data() {
     return {
-      projectsFilteredBy: '',
-      projects: [{
-        'name': 'MenuCrunch',
-        'skills': ['laravel', 'alpineJS', 'tailwindCss'],
-        'link': 'https://menucrunch.com',
-        'img': '/images/menucrunch.png',
-        'demo': 'https://screencast-o-matic.com/watch/crf0X6VelBg',
-        'description': "Allows restaurants to quickly and easily get their menu online. This app also helps restaurants accept and streamline online orders and has powerful analysis tools."
-      }, {
-        'name': 'SWENG Scheduler',
-        'skills': ['laravel', 'reactJS', 'd3js', 'tailwindCss'],
-        'link': 'https://psuswengscheduler.com/',
-        'img': '/images/sweng.png',
-        'demo': 'https://screencast-o-matic.com/watch/crjQbsVjDJT',
-        'description': "A tool to help students find course information and get course recommendations for the Software Engineering curriculum at the Pennsylvania State University."
-      }, {
-        'name': 'Swift Grocery List',
-        'skills': ['laravel', 'vueJS', 'bootstrap4'],
-        'link': 'https://swiftgrocerylist.com',
-        'img': '/images/sgl.png',
-        'demo': null,
-        'description': "A web application that helps you create a grocery shopping list fast. Built with Laravel and Vue.js. Includes recipes, drag-and-drop aisle sorting and much more."
-      }, {
-        'name': 'Tetris',
-        'skills': ['java'],
-        'link': 'https://github.com/MattStrauss/tetris',
-        'img': '/images/tetris.png',
-        'demo': 'https://screencast-o-matic.com/watch/crjDIXVj4DV',
-        'description': "A java version of the classic game of Tetris. Includes a preview of the upcoming piece and a score keeper."
-      }, {
-        'name': 'My Dev Site',
-        'skills': ['laravel', 'inertiaJS', 'vueJS', 'tailwindCss'],
-        'link': 'https://mattstrauss.dev',
-        'img': '/images/devsite.png',
-        'demo': null,
-        'description': "The site you are looking at right now! It was built with the amazing Inertia.js framework, which I highly recommend checking out."
-      }, {
-        'name': 'Dresser',
-        'skills': ['laravel', 'larevel livewire', 'tailwindCss'],
-        'link': 'https://github.com/MattStrauss/dresser',
-        'img': '/images/dresser.png',
-        'demo': null,
-        'description': "A quick and (relatively) dirty mock project to try out Laravel Livewire. The idea was to create a UI that would typically require a decent amount of JS, but to only use Livewire and write zero JS. " + "This is heavily inspired by Caleb Porzio's Guest Spotlight episode on Laracasts where he built an interactive table. It's open source on github, so check it out!"
-      }, {
-        'name': 'Tic-Tac-Toe',
-        'skills': ['assembly'],
-        'link': 'https://github.com/MattStrauss/tictactoe',
-        'img': '/images/tic_tac_toe.png',
-        'demo': 'https://screencast-o-matic.com/watch/crfUlvVea9L',
-        'description': "An assembly version of Tic-Tac-Toe whereas you compete against the machine. The machine is semi-intelligent, which considering this program was written in assembly, was not easy to pull off."
-      }]
+      projectsFilteredBy: ''
     };
   },
   computed: {
@@ -19414,6 +19356,9 @@ __webpack_require__.r(__webpack_exports__);
     clearFilter: function clearFilter() {
       this.projectsFilteredBy = '';
     }
+  },
+  props: {
+    projects: Object
   }
 });
 
@@ -20060,7 +20005,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createVNode)(_component_Head, {
         title: "Home"
-      }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.skills.backend, function (skill) {
+      }), _hoisted_1, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_2, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_3, [_hoisted_4, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_5, [_hoisted_6, _hoisted_7, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_8, [(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_9, [_hoisted_10, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_11, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.skills.backend, function (skill) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           "class": "inline-block bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2",
           key: skill
@@ -20069,7 +20014,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         );
       }), 128
       /* KEYED_FRAGMENT */
-      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.skills.frontend, function (skill) {
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_12, [_hoisted_13, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_14, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.skills.frontend, function (skill) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           "class": "inline-block bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2",
           key: skill
@@ -20078,7 +20023,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         );
       }), 128
       /* KEYED_FRAGMENT */
-      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.skills.testing, function (skill) {
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_15, [_hoisted_16, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_17, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.skills.testing, function (skill) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           "class": "inline-block bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2",
           key: skill
@@ -20087,7 +20032,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         );
       }), 128
       /* KEYED_FRAGMENT */
-      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)(_ctx.skills.misc, function (skill) {
+      ))])]), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_18, [_hoisted_19, (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", _hoisted_20, [((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(true), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)(vue__WEBPACK_IMPORTED_MODULE_0__.Fragment, null, (0,vue__WEBPACK_IMPORTED_MODULE_0__.renderList)($props.skills.misc, function (skill) {
         return (0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementBlock)("span", {
           "class": "inline-block bg-gray-600 rounded-full px-3 py-1 text-sm font-semibold text-gray-100 mr-2 mb-2",
           key: skill
@@ -20148,14 +20093,14 @@ var _hoisted_5 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 );
 
 var _hoisted_6 = {
-  "class": "sm:grid sm:grid-cols-3 sm:gap-4"
+  "class": "sm:grid sm:grid-cols-3 sm:gap-4 mb-4 sm:mb-0"
 };
 var _hoisted_7 = {
   "class": "max-w-lg rounded overflow-hidden bg-gray-200 mt-3 mb-3 shadow-lg mx-auto border-gray-700 border-2"
 };
 var _hoisted_8 = ["src"];
 var _hoisted_9 = {
-  "class": "px-6 py-4 bg-gray-300"
+  "class": "px-6 py-4 bg-gray-50 border-t-2 border-gray-300"
 };
 var _hoisted_10 = {
   "class": "font-bold text-xl mb-2 text-yellow-600"

@@ -101,14 +101,6 @@
 import Layout from '../Shared/Layout';
 import { Head } from '@inertiajs/inertia-vue3'
 
-const skills =
-    {
-        'backend' : ['PHP', 'SQL', 'MySQL', 'Laravel', 'RubyOnRails', 'Ruby', 'Redis', 'C', 'C++', 'Java', 'Swift', 'Mips/Assembly', 'VHDL', 'Livewire'].sort(),
-        'frontend' : ['HTML', 'Javascript', 'CSS', 'Tailwind', 'Bootstrap', 'Alpine.js', 'React.js', 'Vue.js', 'Inertia.js', 'Angular.js', 'Laravel Blade'].sort(),
-        'testing' : ['PHPUnit', 'JUnit', 'Laravel Dusk', 'Codeception', 'Jest', 'Selenium'].sort(),
-        'misc' : ['WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'PHP Storm', 'Laravel Spark'].sort()
-    };
-
 export default {
     name: "Home",
 
@@ -117,10 +109,8 @@ export default {
         Head,
     },
 
-    data: function() {
-        return {
-            skills : skills,
-        }
-    }
+    props: {
+        skills: Object,
+    },
 }
 </script>
