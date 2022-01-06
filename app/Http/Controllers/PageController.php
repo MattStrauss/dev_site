@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Mail\ContactFormSubmitted;
+use App\Rules\Recaptcha;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Inertia\Inertia;
@@ -35,6 +36,7 @@ class PageController extends Controller
             'type' => 'required',
             'remote' => 'required',
             'description' => 'required',
+            'captcha_token' => ['required', new Recaptcha]
         ]);
 
         Mail::to(config('mail.to.address'))->send(new ContactFormSubmitted($request));
@@ -42,7 +44,6 @@ class PageController extends Controller
         return response()->json(null, 200);
 
     }
-
 
     private function getProjects()
     {

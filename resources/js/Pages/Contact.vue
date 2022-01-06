@@ -7,6 +7,10 @@
                 <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3">  </div>
             </div>
 
+            <div v-if="errors && errors.captcha_token" class="text-red-400 italic text-center text-lg">
+                Your submission failed to meet the Captcha requirements, are you a robot?
+            </div>
+
             <form class="w-full max-w-lg ml-auto mr-auto mt-5 text-gray-100">
                 <div v-if="success" class="bg-yellow-100 border-t-4 border-yellow-500 rounded-b text-yellow-900 mb-4 px-4 py-3 shadow-md" role="alert">
                     <div class="flex">
@@ -165,19 +169,30 @@ export default {
 
     methods: {
         submit() {
-            this.processing = true;
-            this.success = false;
-            this.errors = {};
-            axios.post('/contact', this.fields).then(response => {
-                this.fields = {};
-                this.processing = false;
-                this.success = true;
-            }).catch(error => {
-                this.processing = false;
-                if (error.response.status === 422) {
-                    this.errors = error.response.data.errors || {};
-                }
-            });
+
+            let submitForm = (token) => {
+
+                this.fields.captcha_token = token;
+                this.processing = true;
+                this.success = false;
+                this.errors = {};
+                axios.post('/contact', this.fields).then(response => {
+                    this.fields = {};
+                    this.processing = false;
+                    this.success = true;
+                }).catch(error => {
+                    this.processing = false;
+                    if (error.response.status === 422) {
+                        this.errors = error.response.data.errors || {};
+                    }
+                });
+            }
+
+            grecaptcha
+                .execute('6Ld2bfYdAAAAAL6yv0Oa-lRgw9y93KtIaXDdo20T', { action: "submit" })
+                .then (function (token) {
+                    submitForm(token);
+                });
         },
 
         clearForm() {

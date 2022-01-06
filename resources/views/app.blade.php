@@ -6,6 +6,7 @@
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" />
     <script src="{{ mix('/js/app.js') }}" defer></script>
     <link rel="icon" href="{{ asset('images/favicon.ico') }}" type="image/x-icon"/>
+    <script src="https://www.google.com/recaptcha/api.js?render=6Ld2bfYdAAAAAL6yv0Oa-lRgw9y93KtIaXDdo20T"></script>
 </head>
 <body class="bg-gray-700">
 @inertia
