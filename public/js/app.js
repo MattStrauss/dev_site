@@ -19244,6 +19244,12 @@ __webpack_require__.r(__webpack_exports__);
     Head: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Head,
     Link: _inertiajs_inertia_vue3__WEBPACK_IMPORTED_MODULE_1__.Link
   },
+  beforeMount: function beforeMount() {
+    document.getElementById('captchaStyle').innerHTML = "";
+  },
+  beforeUnmount: function beforeUnmount() {
+    document.getElementById('captchaStyle').innerHTML = ".grecaptcha-badge { visibility: hidden !important; }";
+  },
   data: function data() {
     return {
       fields: {},

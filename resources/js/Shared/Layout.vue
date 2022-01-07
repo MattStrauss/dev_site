@@ -48,6 +48,7 @@ export default {
             this.navMenuOpen = ! this.navMenuOpen;
         }
     },
+
     computed: {
         getCurrentYear() {
             let currentDate = new Date();

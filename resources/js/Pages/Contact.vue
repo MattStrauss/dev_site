@@ -158,6 +158,14 @@ export default {
         Link,
     },
 
+    beforeMount() {
+        document.getElementById('captchaStyle').innerHTML="";
+    },
+
+    beforeUnmount() {
+        document.getElementById('captchaStyle').innerHTML=".grecaptcha-badge { visibility: hidden !important; }";
+    },
+
     data() {
         return {
             fields: {},
@@ -204,4 +212,3 @@ export default {
     },
 }
 </script>
-
