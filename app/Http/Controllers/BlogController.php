@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
-use Illuminate\Http\Request;
 use Inertia\Inertia;
 
 
@@ -16,7 +15,8 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        $post = Post::live()->whereSlug($slug)->first();
+        $post = Post::with('tags')
+        ->live()->whereSlug($slug)->first();
 
         if (! $post) {
             return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts()]);
