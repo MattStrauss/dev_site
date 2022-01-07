@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Post;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
-use Wink\WinkPost;
+
 
 class BlogController extends Controller
 {
     public function index()
     {
-        $posts = WinkPost::with('tags')
+        $posts = Post::with('tags')
             ->live()
             ->orderBy('publish_date', 'DESC')->get();
 
@@ -19,7 +20,7 @@ class BlogController extends Controller
 
     public function show($slug)
     {
-        $post = WinkPost::live()->whereSlug($slug)->first();
+        $post = Post::live()->whereSlug($slug)->first();
 
         if (! $post) {
             flash()->error('Post not found.');
