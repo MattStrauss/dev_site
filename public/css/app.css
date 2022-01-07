@@ -5188,6 +5188,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 .h-40{
   height: 10rem;
 }
+.h-1\/4{
+  height: 25%;
+}
+.h-1\/6{
+  height: 16.666667%;
+}
+.h-64{
+  height: 16rem;
+}
+.h-48{
+  height: 12rem;
+}
+.h-60{
+  height: 15rem;
+}
 .min-h-screen{
   min-height: 100vh;
 }
@@ -5214,6 +5229,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .w-40{
   width: 10rem;
+}
+.w-60{
+  width: 15rem;
 }
 .max-w-6xl{
   max-width: 72rem;
@@ -5298,6 +5316,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .border-t-8{
   border-top-width: 8px;
+}
+.border-b{
+  border-bottom-width: 1px;
 }
 .border-gray-200{
   --tw-border-opacity: 1;
@@ -5440,6 +5461,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   padding-left: 2rem;
   padding-right: 2rem;
 }
+.py-8{
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
 .pt-8{
   padding-top: 2rem;
 }
@@ -5493,6 +5518,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-base{
   font-size: 1rem;
   line-height: 1.5rem;
+}
+.text-2xl{
+  font-size: 1.5rem;
+  line-height: 2rem;
 }
 .font-semibold{
   font-weight: 600;
@@ -5629,6 +5658,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .hover\:text-yellow-400:hover{
   --tw-text-opacity: 1;
   color: rgb(250 204 21 / var(--tw-text-opacity));
+}
+.hover\:text-yellow-600:hover{
+  --tw-text-opacity: 1;
+  color: rgb(202 138 4 / var(--tw-text-opacity));
 }
 .focus\:border-gray-500:focus{
   --tw-border-opacity: 1;

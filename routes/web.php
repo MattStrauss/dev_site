@@ -18,7 +18,7 @@ Route::get('/projects', [\App\Http\Controllers\PageController::class, 'projects'
 Route::get('/contact', [\App\Http\Controllers\PageController::class, 'contact']);
 Route::post('/contact', [\App\Http\Controllers\PageController::class, 'contactFormSubmit']);
 
-// Blog routes
+
 Route::group( [ 'prefix' => 'blog', 'as' => 'blog.'], function () {
     Route::get('/', [\App\Http\Controllers\BlogController::class, 'index'])->name('index');
     Route::get('/{slug}', [\App\Http\Controllers\BlogController::class, 'show'])->name('show');

@@ -12,10 +12,9 @@ class BlogController extends Controller
     {
         $posts = WinkPost::with('tags')
             ->live()
-            ->orderBy('publish_date', 'DESC')
-            ->simplePaginate(10);
+            ->orderBy('publish_date', 'DESC')->get();
 
-        return Inertia::render('Home', ['posts' => $posts]);
+        return Inertia::render('Blog/Index', ['posts' => $posts]);
     }
 
     public function show($slug)
