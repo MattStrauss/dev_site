@@ -11,11 +11,7 @@ class BlogController extends Controller
 {
     public function index()
     {
-        $posts = Post::with('tags')
-            ->live()
-            ->orderBy('publish_date', 'DESC')->get();
-
-        return Inertia::render('Blog/Index', ['posts' => $posts]);
+        return Inertia::render('Blog/Index', ['posts' => $this->getBlogPosts()]);
     }
 
     public function show($slug)
@@ -23,10 +19,16 @@ class BlogController extends Controller
         $post = Post::live()->whereSlug($slug)->first();
 
         if (! $post) {
-            flash()->error('Post not found.');
-            return redirect()->route('blog.index');
+            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts()]);
         }
 
-        return Inertia::render('Home', ['post' => $post]);
+        return Inertia::render('Blog/Show', ['post' => $post]);
+    }
+
+    private function getBlogPosts()
+    {
+        return Post::with('tags')
+            ->live()
+            ->orderBy('publish_date', 'DESC')->get();
     }
 }
