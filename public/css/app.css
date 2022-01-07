@@ -5007,6 +5007,39 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-drop-shadow: var(--tw-empty,/*!*/ /*!*/);
   --tw-filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
 }
+.container{
+  width: 100%;
+}
+@media (min-width: 640px){
+
+  .container{
+    max-width: 640px;
+  }
+}
+@media (min-width: 768px){
+
+  .container{
+    max-width: 768px;
+  }
+}
+@media (min-width: 1024px){
+
+  .container{
+    max-width: 1024px;
+  }
+}
+@media (min-width: 1280px){
+
+  .container{
+    max-width: 1280px;
+  }
+}
+@media (min-width: 1536px){
+
+  .container{
+    max-width: 1536px;
+  }
+}
 .pointer-events-none{
   pointer-events: none;
 }
@@ -5103,6 +5136,21 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .mr-1{
   margin-right: 0.25rem;
+}
+.mb-20{
+  margin-bottom: 5rem;
+}
+.mt-20{
+  margin-top: 5rem;
+}
+.mb-10{
+  margin-bottom: 2.5rem;
+}
+.mb-5{
+  margin-bottom: 1.25rem;
+}
+.-mt-1{
+  margin-top: -0.25rem;
 }
 .block{
   display: block;
@@ -5416,6 +5464,12 @@ Ensure the default browser behavior of the `hidden` attribute.
 .text-center{
   text-align: center;
 }
+.font-sans{
+  font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+.font-serif{
+  font-family: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+}
 .text-sm{
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -5448,6 +5502,9 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .font-thin{
   font-weight: 100;
+}
+.font-normal{
+  font-weight: 400;
 }
 .uppercase{
   text-transform: uppercase;
@@ -5522,6 +5579,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
+}
+.no-underline{
+  -webkit-text-decoration-line: none;
+          text-decoration-line: none;
 }
 .antialiased{
   -webkit-font-smoothing: antialiased;
@@ -5731,6 +5792,12 @@ Ensure the default browser behavior of the `hidden` attribute.
   .lg\:px-8{
     padding-left: 2rem;
     padding-right: 2rem;
+  }
+}
+@media (min-width: 1280px){
+
+  .xl\:w-1\/2{
+    width: 50%;
   }
 }
 
