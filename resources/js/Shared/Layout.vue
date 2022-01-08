@@ -14,6 +14,8 @@
                     <i class="fa fa-home fa-fw"></i><span class="uppercase tracking-wide text-xs font-bold"> Home</span></Link>
                 <Link v-if="navMenuOpen" href="/projects" class="p-1 hover:text-yellow-500 mr-1" :class="($page.component === 'Projects') ? 'text-yellow-500' : ''">
                     <i class="fa fa-lightbulb fa-fw"></i><span class="uppercase tracking-wide text-xs font-bold"> Projects</span></Link>
+                <Link v-if="navMenuOpen" href="/blog" class="p-1 hover:text-yellow-500 ml-1" :class="($page.component.startsWith('Blog')) ? 'text-yellow-500' : ''">
+                    <i class="fas fa-rss-square"></i><span class="uppercase tracking-wide text-xs font-bold"> Blog</span></Link>
                 <Link v-if="navMenuOpen" href="/contact" class="p-1 hover:text-yellow-500 ml-1" :class="($page.component === 'Contact') ? 'text-yellow-500' : ''">
                     <i class="fas fa-mail-bulk fa-fw"></i><span class="uppercase tracking-wide text-xs font-bold"> Contact</span></Link>
             </div>
@@ -48,6 +50,7 @@ export default {
             this.navMenuOpen = ! this.navMenuOpen;
         }
     },
+
     computed: {
         getCurrentYear() {
             let currentDate = new Date();
