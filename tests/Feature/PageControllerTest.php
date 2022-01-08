@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Mail\ContactFormSubmitted;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Support\Facades\Mail;
 use Tests\TestCase;
 use Inertia\Testing\Assert;
@@ -67,6 +65,7 @@ class PageControllerTest extends TestCase
             'type' => 'Backend',
             'remote' => 'Remote',
             'description' => 'Sweet job that you will definitely like!',
+            'captcha_token' => 'some_fake_key_for_testing',
         ];
 
         $response = $this->post('/contact', $data);

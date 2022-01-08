@@ -3,11 +3,12 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
 use Wink\WinkPost;
 
 class Post extends WinkPost
 {
+
+    use HasFactory;
 
     protected $appends = ['readTime'];
 

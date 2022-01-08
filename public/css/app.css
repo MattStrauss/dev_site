@@ -5783,9 +5783,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .max-w-lg{
   max-width: 32rem;
 }
-.max-w-prose{
-  max-width: 65ch;
-}
 .flex-shrink-0{
   flex-shrink: 0;
 }
@@ -6115,9 +6112,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 }
 .leading-tight{
   line-height: 1.25;
-}
-.leading-loose{
-  line-height: 2;
 }
 .tracking-wider{
   letter-spacing: 0.05em;

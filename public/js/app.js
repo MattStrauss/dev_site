@@ -20697,7 +20697,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
   , ["class"])) : (0,vue__WEBPACK_IMPORTED_MODULE_0__.createCommentVNode)("v-if", true), $data.navMenuOpen ? ((0,vue__WEBPACK_IMPORTED_MODULE_0__.openBlock)(), (0,vue__WEBPACK_IMPORTED_MODULE_0__.createBlock)(_component_Link, {
     key: 2,
     href: "/blog",
-    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["p-1 hover:text-yellow-500 ml-1", _ctx.$page.component === 'Blog/Index' ? 'text-yellow-500' : ''])
+    "class": (0,vue__WEBPACK_IMPORTED_MODULE_0__.normalizeClass)(["p-1 hover:text-yellow-500 ml-1", _ctx.$page.component.startsWith('Blog') ? 'text-yellow-500' : ''])
   }, {
     "default": (0,vue__WEBPACK_IMPORTED_MODULE_0__.withCtx)(function () {
       return [_hoisted_9, _hoisted_10];
