@@ -2,7 +2,7 @@
     <layout>
         <Head title="Home"></Head>
         <div class="bg-gray-600 p-10 inset-y-auto object-center">
-            <img class="h-40 w-40 rounded-full mx-auto border-2 border-yellow-500" src="/images/avatar.jpeg">
+            <img class="h-40 w-40 rounded-full mx-auto border-2 border-yellow-500" src="/storage/images/avatar.jpeg">
             <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3">  </div>
             <div class="text-center text-gray-100 font-thin">
                 <h2 class="text-lg">Matt Strauss</h2>
