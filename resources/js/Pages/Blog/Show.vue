@@ -5,9 +5,10 @@
             <meta name="description" :content="post.excerpt" />
             <meta name="twitter:title" :content="post.title">
             <meta name="twitter:description" :content="post.excerpt">
-            <meta name="twitter:image" :content="post.featured_image">
+            <meta name="twitter:image" :content="'https://mattstrauss.dev' + post.featured_image">
+            <meta name="twitter:creator" content="@mstrauss_dev">
         </Head>
-        <div class="bg-gray-600 p-10 inset-y-auto object-center">
+        <div class="bg-gray-600 p-3 md:p-10 inset-y-auto object-center">
             <div class="object-cover">
                 <div class="p-4 object-center text-center pb-10">
                     <div class="md:ml-40 md:mr-40 pb-5">
