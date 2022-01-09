@@ -3,8 +3,15 @@
         <Head>
             <title>{{post.title}}</title>
             <meta name="description" :content="post.excerpt" />
+            <meta name="og:description" :content="post.excerpt" />
+            <meta name="og:title" :content="post.title" />
+            <meta name="og:type" content="website" />
+            <meta name="og:site_name" content="Matt Strauss - Software Developer" />
+            <meta name="og:url" :content="'https://mattstrauss.dev/blog/' + post.slug" />
+            <meta name="og:image" :content="'https://mattstrauss.dev' + post.featured_image" />
             <meta name="twitter:title" :content="post.title">
             <meta name="twitter:description" :content="post.excerpt">
+            <meta name="twitter:card" content="summary_large_image">
             <meta name="twitter:image" :content="'https://mattstrauss.dev' + post.featured_image">
             <meta name="twitter:creator" content="@mstrauss_dev">
         </Head>
