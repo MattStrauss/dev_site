@@ -20355,7 +20355,7 @@ var _hoisted_4 = /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementV
 }, "About"), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("div", {
   "class": "w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3"
 }), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("p", {
-  "class": "italic text-gray-100 text-hairline pt-2"
+  "class": "text-center text-gray-100 text-hairline pt-2 prose prose-lg prose-yellow max-w-full"
 }, [/*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createTextVNode)(" I'm a freelance web developer with experience in a range of technologies, see below. While I typically work as a full stack developer, my skills are stronger on the backend. But, with the advent of new tools like "), /*#__PURE__*/(0,vue__WEBPACK_IMPORTED_MODULE_0__.createElementVNode)("a", {
   href: "https://inertiajs.com/",
   "class": "underline hover:text-yellow-500"
