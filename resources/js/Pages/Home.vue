@@ -16,10 +16,11 @@
 
             <div class="bg-gray-700 p-4 object-center text-center pb-10">
 
-                <div class="md:ml-40 md:mr-40  pb-5">
+                <div class="md:ml-40 md:mr-40 pb-5">
                     <p class="text-3xl text-yellow-500 font-hairline">About</p>
                     <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3"></div>
-                    <p class="italic text-gray-100 text-hairline pt-2">
+
+                    <p class="text-center text-gray-100 text-hairline pt-2 prose prose-lg prose-yellow max-w-full">
                         I'm a freelance web developer with experience in a range of technologies, see below. While I typically work as a full stack developer, my skills are
                         stronger on the backend. But, with the advent of new tools like <a href="https://inertiajs.com/" class="underline hover:text-yellow-500"> Inertia.js</a>
                         and <a href="https://tailwindcss.com/" class="underline hover:text-yellow-500">TailwindCSS</a>, the frontend is becoming more and more fun. I am keenly
@@ -27,6 +28,7 @@
                         In addition to being a developer, I am currently studying Software Engineering at the Pennsylvania State University to gain deeper insights and a
                         more rigorous understanding of core software concepts, architecture, etc.
                     </p>
+
                 </div>
 
                 <div class="md:ml-40 md:mr-40 pt-5 text-center">
