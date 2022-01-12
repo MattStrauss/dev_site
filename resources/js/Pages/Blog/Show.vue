@@ -6,7 +6,7 @@
             <meta name="og:description" :content="post.excerpt" />
             <meta name="og:title" :content="post.title" />
             <meta name="og:type" content="website" />
-            <meta name="og:site_name" content="Matt Strauss - Software Developer" />
+            <meta name="og:site_name" content="Matt Strauss | Software Developer" />
             <meta name="og:url" :content="'https://mattstrauss.dev/blog/' + post.slug" />
             <meta name="og:image" :content="'https://mattstrauss.dev' + post.featured_image" />
             <meta name="twitter:title" :content="post.title">
