@@ -5624,6 +5624,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-top: -0.25rem;
   margin-bottom: -0.25rem;
 }
+.my-5{
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+}
 .mb-20{
   margin-bottom: 5rem;
 }

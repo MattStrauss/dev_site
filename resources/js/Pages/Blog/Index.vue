@@ -55,6 +55,28 @@
                             </ul>
                         </div>
 
+                        <div class="my-5">
+
+                            <template v-for="link in posts.links">
+
+                                <Link
+                                    class="p-1 text-gray-100 hover:text-yellow-500"
+                                    v-if="link.url"
+                                    :href="link.url"
+                                    v-html="link.label">
+                                </Link>
+
+                                <span
+                                    class="p-1 text-gray-400"
+                                    v-else
+                                    v-html="link.label">
+                                </span>
+
+                            </template>
+
+                        </div>
+
+
 
                     </div>
                 </div>
