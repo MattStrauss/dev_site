@@ -34,7 +34,7 @@
 
                         <div>
                             <ul>
-                                <li v-for="post in posts" :key="post.id" class="border-b-2 border-yellow-500 py-8">
+                                <li v-for="post in posts.data" :key="post.id" class="border-b-2 border-yellow-500 py-8">
                                     <Link :href="/blog/ + post.slug">
                                         <img :src="post.featured_image" alt="featured image of post"
                                              class="h-60 w-60 rounded-full mx-auto border-2 border-yellow-500" >

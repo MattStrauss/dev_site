@@ -28,6 +28,6 @@ class BlogController extends Controller
     {
         return Post::with('tags')
             ->live()
-            ->orderBy('publish_date', 'DESC')->get();
+            ->orderBy('publish_date', 'DESC')->paginate(10);
     }
 }
