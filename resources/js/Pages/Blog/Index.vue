@@ -8,6 +8,10 @@
                         <p class="text-3xl text-yellow-500 font-hairline">Blog</p>
                         <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3"></div>
 
+                        <div class="py-4 w-full">
+                            <input v-model="search" type="search" placeholder="Search..." class="appearance-none w-full px-4 py-2 border border-gray-300 text-base rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-yelllow-500 focus:border-yelllow-500 lg:max-w-xs">
+                        </div>
+
                         <div v-show="error" class="rounded-md bg-yellow-50 p-4 mx-10">
                             <div class="flex">
                                 <div class="flex-shrink-0">
@@ -91,9 +95,16 @@
 import Layout from '../../Shared/Layout';
 import { Head } from '@inertiajs/inertia-vue3'
 import { Link } from '@inertiajs/inertia-vue3'
+import {Inertia} from "@inertiajs/inertia";
 
 export default {
     name: "Index",
+
+    data() {
+        return {
+            search: this.filters.search,
+        }
+    },
 
     components: {
         Layout,
@@ -103,11 +114,19 @@ export default {
 
     props: {
         posts : Object,
+        filters: Object,
         error: {
             type: Boolean,
             default: false,
         },
     },
+
+    watch: {
+        search (value) {
+            Inertia.get("/blog", {search: value},
+            { preserveState: true, replace: true, });
+        }
+    }
 
 }
 </script>
