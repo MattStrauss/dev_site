@@ -1,5 +1,7 @@
 require('./bootstrap');
 
+import { Inertia } from '@inertiajs/inertia'
+
 import { createApp, h } from 'vue'
 import { createInertiaApp } from '@inertiajs/inertia-vue3'
 
@@ -11,4 +13,8 @@ createInertiaApp({
             .use(plugin)
             .mount(el)
     },
+})
+
+Inertia.on('navigate', (event) => {
+    window.fathom.trackPageview();
 })
