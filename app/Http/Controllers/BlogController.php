@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
@@ -13,7 +14,7 @@ class BlogController extends Controller
         return Inertia::render('Blog/Index',
             [
                 'posts' => $this->getBlogPosts(),
-                'filters' => Request::only(['search']),
+                'filters' => Request::only(['search', 'tag']),
             ]);
     }
 
@@ -34,6 +35,11 @@ class BlogController extends Controller
         return Post::query()
             ->when(Request::input("search"), function ($query, $search) {
                 $query->where('body', 'like', "%" . $search . "%");
+            })
+            ->when(Request::input("tag"), function ($query, $tag) {
+                $query->whereHas('tags', function (Builder $query) use ($tag) {
+                    $query->where('name', $tag);
+                })->get();
             })
             ->with('tags')
             ->live()

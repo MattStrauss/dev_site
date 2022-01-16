@@ -8,10 +8,6 @@
                         <p class="text-3xl text-yellow-500 font-hairline">Blog</p>
                         <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3"></div>
 
-                        <div class="py-4 w-full">
-                            <input v-model="search" type="search" placeholder="Search..." class="appearance-none w-full px-4 py-2 border border-gray-300 text-base rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-yelllow-500 focus:border-yelllow-500 lg:max-w-xs">
-                        </div>
-
                         <div v-show="error" class="rounded-md bg-yellow-50 p-4 mx-10">
                             <div class="flex">
                                 <div class="flex-shrink-0">
@@ -36,6 +32,19 @@
                         </div>
 
 
+                        <div class="py-4 w-full">
+                            <input v-model="search" type="search" placeholder="Search..." class="appearance-none w-full px-4 py-2 border border-gray-300 text-base rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-yelllow-500 focus:border-yelllow-500 lg:max-w-xs">
+                        </div>
+
+
+                        <div v-if="filters.tag" class="text-center">
+                            <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
+                                <i class="fas fa-filter fa-fw"></i> "{{ filters.tag }}"
+                                <i @click="clearTagFilter()" class="fas fa-times-circle parent hover:text-red-500"></i>
+                            </span>
+                        </div>
+
+
                         <div>
                             <ul>
                                 <li v-for="post in posts.data" :key="post.id" class="border-b-2 border-yellow-500 py-8">
@@ -51,7 +60,7 @@
 
                                     <div class="px-6 pt-4">
                                         <span v-for="tag in post.tags" class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
-                                            <span> <i class="fas fa-tags text-yellow-600"></i> {{tag.name}} </span>
+                                            <Link :href="'/blog/?tag=' + tag.name"> <i class="fas fa-tags text-yellow-600"></i> {{tag.name}} </Link>
                                         </span>
                                     </div>
 
@@ -125,6 +134,17 @@ export default {
         error: {
             type: Boolean,
             default: false,
+        },
+    },
+
+    methods : {
+        filterByTag(tag) {
+            Inertia.get("/blog", {data: tag},
+            { preserveState: true, replace: true, }
+            )
+        },
+        clearTagFilter() {
+            Inertia.get("/blog");
         },
     },
 
