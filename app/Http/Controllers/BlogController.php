@@ -3,13 +3,19 @@
 namespace App\Http\Controllers;
 
 use App\Models\Post;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Support\Facades\Request;
 use Inertia\Inertia;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return Inertia::render('Blog/Index', ['posts' => $this->getBlogPosts()]);
+        return Inertia::render('Blog/Index',
+            [
+                'posts' => $this->getBlogPosts(),
+                'filters' => Request::only(['search', 'tag']),
+            ]);
     }
 
     public function show($slug)
@@ -18,7 +24,7 @@ class BlogController extends Controller
         ->live()->whereSlug($slug)->first();
 
         if (! $post) {
-            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts()]);
+            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts(), 'filters' => null]);
         }
 
         return Inertia::render('Blog/Show', ['post' => $post]);
@@ -26,8 +32,19 @@ class BlogController extends Controller
 
     private function getBlogPosts()
     {
-        return Post::with('tags')
+        return Post::query()
+            ->when(Request::input("search"), function ($query, $search) {
+                $query->where('body', 'like', "%" . $search . "%")->orWhere('title', 'like', "%" . $search . "%");
+            })
+            ->when(Request::input("tag"), function ($query, $tag) {
+                $query->whereHas('tags', function (Builder $query) use ($tag) {
+                    $query->where('name', $tag);
+                })->get();
+            })
+            ->with('tags')
             ->live()
-            ->orderBy('publish_date', 'DESC')->get();
+            ->orderBy('publish_date', 'DESC')
+            ->paginate(10)
+            ->withQueryString();
     }
 }

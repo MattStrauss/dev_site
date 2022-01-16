@@ -32,9 +32,22 @@
                         </div>
 
 
+                        <div class="py-4 w-full">
+                            <input v-model="search" type="search" placeholder="Search..." class="appearance-none w-full px-4 py-2 border border-gray-300 text-base rounded-md text-gray-900 bg-white placeholder-gray-500 focus:outline-none focus:ring-yelllow-500 focus:border-yelllow-500 lg:max-w-xs">
+                        </div>
+
+
+                        <div v-if="filters?.tag" class="text-center">
+                            <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
+                                <i class="fas fa-filter fa-fw"></i> "{{ filters?.tag }}"
+                                <i @click="clearTagFilter()" class="fas fa-times-circle parent hover:text-red-500"></i>
+                            </span>
+                        </div>
+
+
                         <div>
                             <ul>
-                                <li v-for="post in posts" :key="post.id" class="border-b-2 border-yellow-500 py-8">
+                                <li v-for="post in posts.data" :key="post.id" class="border-b-2 border-yellow-500 py-8">
                                     <Link :href="/blog/ + post.slug">
                                         <img :src="post.featured_image" alt="featured image of post"
                                              class="h-60 w-60 rounded-full mx-auto border-2 border-yellow-500" >
@@ -46,14 +59,43 @@
                                     <p class="text-gray-100 font-light pt-2" v-text="post.excerpt"></p>
 
                                     <div class="px-6 pt-4">
-                                        <span v-for="tag in post.tags" class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
-                                            <span> <i class="fas fa-tags text-yellow-600"></i> {{tag.name}} </span>
-                                        </span>
+                                        <Link :href="'/blog/?tag=' + tag.name" v-for="tag in post.tags"
+                                              class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2 hover:bg-yellow-100">
+                                            <i class="fas fa-tags text-yellow-600"></i> {{tag.name}}
+                                        </Link>
                                     </div>
 
                                 </li>
                             </ul>
                         </div>
+
+                        <div class="my-5">
+
+                            <template v-for="link in posts.links">
+
+                                <Link
+                                    class="p-1 text-gray-100 hover:text-yellow-500"
+                                    v-if="link.url && ! link.active"
+                                    :href="link.url"
+                                    v-html="link.label">
+                                </Link>
+
+                                <span
+                                    class="p-1 text-yellow-700 underline"
+                                    v-else-if="link.active"
+                                    v-html="link.label">
+                                </span>
+
+                                <span
+                                    class="p-1 text-gray-400"
+                                    v-else
+                                    v-html="link.label">
+                                </span>
+
+                            </template>
+
+                        </div>
+
 
 
                     </div>
@@ -67,11 +109,19 @@
 <script>
 
 import Layout from '../../Shared/Layout';
-import { Head } from '@inertiajs/inertia-vue3'
-import { Link } from '@inertiajs/inertia-vue3'
+import { Head } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/inertia-vue3';
+import { Inertia } from "@inertiajs/inertia";
+import { debounce } from "lodash";
 
 export default {
     name: "Index",
+
+    data() {
+        return {
+            search: this.filters?.search ?? '',
+        }
+    },
 
     components: {
         Layout,
@@ -81,11 +131,30 @@ export default {
 
     props: {
         posts : Object,
+        filters: Object,
         error: {
             type: Boolean,
             default: false,
         },
     },
+
+    methods : {
+        filterByTag(tag) {
+            Inertia.get("/blog", {data: tag},
+            { preserveState: true, replace: true, }
+            )
+        },
+        clearTagFilter() {
+            Inertia.get("/blog");
+        },
+    },
+
+    watch: {
+        search: debounce((value) => {
+            Inertia.get("/blog", {search: value},
+            { preserveState: true, replace: true, });
+        }, 300)
+    }
 
 }
 </script>
