@@ -37,9 +37,9 @@
                         </div>
 
 
-                        <div v-if="filters.tag" class="text-center">
+                        <div v-if="filters?.tag" class="text-center">
                             <span class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
-                                <i class="fas fa-filter fa-fw"></i> "{{ filters.tag }}"
+                                <i class="fas fa-filter fa-fw"></i> "{{ filters?.tag }}"
                                 <i @click="clearTagFilter()" class="fas fa-times-circle parent hover:text-red-500"></i>
                             </span>
                         </div>
@@ -118,7 +118,7 @@ export default {
 
     data() {
         return {
-            search: this.filters.search,
+            search: this.filters?.search ?? '',
         }
     },
 

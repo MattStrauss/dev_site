@@ -24,7 +24,7 @@ class BlogController extends Controller
         ->live()->whereSlug($slug)->first();
 
         if (! $post) {
-            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts()]);
+            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts(), 'filters' => null]);
         }
 
         return Inertia::render('Blog/Show', ['post' => $post]);
