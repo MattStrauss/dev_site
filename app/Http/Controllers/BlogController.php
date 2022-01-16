@@ -34,7 +34,7 @@ class BlogController extends Controller
     {
         return Post::query()
             ->when(Request::input("search"), function ($query, $search) {
-                $query->where('body', 'like', "%" . $search . "%");
+                $query->where('body', 'like', "%" . $search . "%")->orWhere('title', 'like', "%" . $search . "%");
             })
             ->when(Request::input("tag"), function ($query, $tag) {
                 $query->whereHas('tags', function (Builder $query) use ($tag) {
@@ -44,7 +44,7 @@ class BlogController extends Controller
             ->with('tags')
             ->live()
             ->orderBy('publish_date', 'DESC')
-            ->paginate(3)
+            ->paginate(10)
             ->withQueryString();
     }
 }

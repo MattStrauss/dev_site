@@ -22,4 +22,9 @@ class Post extends WinkPost
         return max(1, (int) floor($wordCount / 150));
     }
 
+    public function tags()
+    {
+        return $this->belongsToMany(Tag::class, 'wink_posts_tags', 'post_id', 'tag_id');
+    }
+
 }
