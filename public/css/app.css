@@ -5843,9 +5843,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .rounded-md{
   border-radius: 0.375rem;
 }
-.rounded-lg{
-  border-radius: 0.5rem;
-}
 .rounded-b{
   border-bottom-right-radius: 0.25rem;
   border-bottom-left-radius: 0.25rem;
@@ -6192,6 +6189,10 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-text-opacity: 1;
   color: rgb(133 77 14 / var(--tw-text-opacity));
 }
+.text-yellow-700{
+  --tw-text-opacity: 1;
+  color: rgb(161 98 7 / var(--tw-text-opacity));
+}
 .underline{
   -webkit-text-decoration-line: underline;
           text-decoration-line: underline;
@@ -6270,10 +6271,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   --tw-border-opacity: 1;
   border-color: rgb(107 114 128 / var(--tw-border-opacity));
 }
-.focus\:border-indigo-500:focus{
-  --tw-border-opacity: 1;
-  border-color: rgb(99 102 241 / var(--tw-border-opacity));
-}
 .focus\:bg-white:focus{
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -6290,10 +6287,6 @@ Ensure the default browser behavior of the `hidden` attribute.
 .focus\:ring-yellow-600:focus{
   --tw-ring-opacity: 1;
   --tw-ring-color: rgb(202 138 4 / var(--tw-ring-opacity));
-}
-.focus\:ring-indigo-500:focus{
-  --tw-ring-opacity: 1;
-  --tw-ring-color: rgb(99 102 241 / var(--tw-ring-opacity));
 }
 .focus\:ring-offset-2:focus{
   --tw-ring-offset-width: 2px;

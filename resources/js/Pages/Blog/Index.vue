@@ -65,10 +65,16 @@
 
                                 <Link
                                     class="p-1 text-gray-100 hover:text-yellow-500"
-                                    v-if="link.url"
+                                    v-if="link.url && ! link.active"
                                     :href="link.url"
                                     v-html="link.label">
                                 </Link>
+
+                                <span
+                                    class="p-1 text-yellow-700 underline"
+                                    v-else-if="link.active"
+                                    v-html="link.label">
+                                </span>
 
                                 <span
                                     class="p-1 text-gray-400"
@@ -93,9 +99,10 @@
 <script>
 
 import Layout from '../../Shared/Layout';
-import { Head } from '@inertiajs/inertia-vue3'
-import { Link } from '@inertiajs/inertia-vue3'
-import {Inertia} from "@inertiajs/inertia";
+import { Head } from '@inertiajs/inertia-vue3';
+import { Link } from '@inertiajs/inertia-vue3';
+import { Inertia } from "@inertiajs/inertia";
+import { debounce } from "lodash";
 
 export default {
     name: "Index",
@@ -122,10 +129,10 @@ export default {
     },
 
     watch: {
-        search (value) {
+        search: debounce((value) => {
             Inertia.get("/blog", {search: value},
             { preserveState: true, replace: true, });
-        }
+        }, 300)
     }
 
 }
