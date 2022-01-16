@@ -59,9 +59,10 @@
                                     <p class="text-gray-100 font-light pt-2" v-text="post.excerpt"></p>
 
                                     <div class="px-6 pt-4">
-                                        <span v-for="tag in post.tags" class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2">
-                                            <Link :href="'/blog/?tag=' + tag.name"> <i class="fas fa-tags text-yellow-600"></i> {{tag.name}} </Link>
-                                        </span>
+                                        <Link :href="'/blog/?tag=' + tag.name" v-for="tag in post.tags"
+                                              class="inline-block bg-gray-100 rounded-full px-3 py-1 text-sm font-semibold text-gray-600 mr-2 mb-2 hover:bg-yellow-100">
+                                            <i class="fas fa-tags text-yellow-600"></i> {{tag.name}}
+                                        </Link>
                                     </div>
 
                                 </li>
