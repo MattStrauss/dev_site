@@ -69,7 +69,7 @@
                             </ul>
                         </div>
 
-                        <div class="my-5">
+                        <div v-if="posts.last_page > 1" class="my-5">
 
                             <template v-for="link in posts.links">
 
@@ -139,11 +139,6 @@ export default {
     },
 
     methods : {
-        filterByTag(tag) {
-            Inertia.get("/blog", {data: tag},
-            { preserveState: true, replace: true, }
-            )
-        },
         clearTagFilter() {
             Inertia.get("/blog");
         },
