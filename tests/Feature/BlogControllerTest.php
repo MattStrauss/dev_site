@@ -2,6 +2,7 @@
 
 namespace Tests\Feature;
 
+use App\Http\Controllers\BlogController;
 use App\Models\Post;
 use App\Models\Tag;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -12,15 +13,17 @@ class BlogControllerTest extends TestCase
 {
     use RefreshDatabase;
 
+    private int $paginationNumber;
+
     /** @test */
     public function index()
     {
-        Post::factory()->count(6)->create(['published' => true]);
+        Post::factory()->count($this->paginationNumber)->create(['published' => true]);
 
         $response = $this->get('/blog')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 6)
+                ->has('posts.data', $this->paginationNumber)
                 ->has('filters', 0)
             );
 
@@ -30,13 +33,12 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckPagination()
     {
-        // current pagination amount is 10
-        Post::factory()->count(13)->create(['published' => true]);
+        Post::factory()->count($this->paginationNumber + 10)->create(['published' => true]);
 
         $response = $this->get('/blog')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 10)
+                ->has('posts.data', $this->paginationNumber)
                 ->has('filters', 0)
             );
 
@@ -46,8 +48,7 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckPaginationSecondPage()
     {
-        // current pagination amount is 10
-        Post::factory()->count(13)->create(['published' => true]);
+        Post::factory()->count($this->paginationNumber + 3)->create(['published' => true]);
 
         $response = $this->get('/blog?page=2')
             ->assertInertia(fn (Assert $page) => $page
@@ -62,13 +63,13 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckSearchWorksCorrectly()
     {
-        Post::factory()->count(5)->create(['published' => true, 'body' => "certxy"]);
-        Post::factory()->count(10)->create(['published' => true]);
+        Post::factory()->count($this->paginationNumber - 3)->create(['published' => true, 'body' => "certxy"]);
+        Post::factory()->count(2)->create(['published' => true]);
 
         $response = $this->get('/blog?search=certxy')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 5)
+                ->has('posts.data', $this->paginationNumber - 3)
                 ->has('filters', 1)
                 ->where('filters', ['search' => 'certxy'])
             );
@@ -79,7 +80,7 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckSearchWorksCorrectly_2()
     {
-        Post::factory()->count(5)->create(['published' => true]);
+        Post::factory()->count(3)->create(['published' => true]);
 
         $response = $this->get('/blog?search=zzzzzzzzzzzzzz')
             ->assertInertia(fn (Assert $page) => $page
@@ -95,13 +96,13 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckSearchWorksCorrectly_3()
     {
-        Post::factory()->count(3)->create(['published' => true, 'title' => "wjdue"]);
-        Post::factory()->count(10)->create(['published' => true]);
+        Post::factory()->count($this->paginationNumber - 2)->create(['published' => true, 'title' => "wjdue"]);
+        Post::factory()->count(2)->create(['published' => true]);
 
         $response = $this->get('/blog?search=wjdue')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 3)
+                ->has('posts.data', $this->paginationNumber - 2)
                 ->has('filters', 1)
                 ->where('filters', ['search' => 'wjdue'])
             );
@@ -112,13 +113,13 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexCheckSearchWorksCorrectly_4()
     {
-        Post::factory()->count(2)->create(['published' => true, 'title' => "xretfd"]);
-        Post::factory()->count(5)->create(['published' => true, 'body' => "xretfd"]);
+        Post::factory()->count($this->paginationNumber - 2)->create(['published' => true, 'title' => "xretfd"]);
+        Post::factory()->count(2)->create(['published' => true, 'body' => "xretfd"]);
 
         $response = $this->get('/blog?search=xretfd')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 7)
+                ->has('posts.data', $this->paginationNumber)
                 ->has('filters', 1)
                 ->where('filters', ['search' => 'xretfd'])
             );
@@ -129,16 +130,16 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexTagsFilteringWorksCorrectly()
     {
-        Post::factory()->count(2)->hasTags(1, [
+        Post::factory()->count($this->paginationNumber - 3)->hasTags(1, [
             'name' => 'testing-tag',
         ])->create(['published' => true]);
 
-        Post::factory()->count(5)->create(['published' => true]);
+        Post::factory()->count(3)->create(['published' => true]);
 
         $response = $this->get('/blog?tag=testing-tag')
             ->assertInertia(fn (Assert $page) => $page
                 ->component('Blog/Index')
-                ->has('posts.data', 2)
+                ->has('posts.data', $this->paginationNumber - 3)
                 ->has('filters', 1)
                 ->where('filters', ['tag' => 'testing-tag'])
             );
@@ -149,7 +150,7 @@ class BlogControllerTest extends TestCase
     /** @test */
     public function indexTagsFilteringWorksCorrectly_2()
     {
-        Post::factory()->count(5)->create(['published' => true]);
+        Post::factory()->count(2)->create(['published' => true]);
 
         $response = $this->get('/blog?tag=testing-tag')
             ->assertInertia(fn (Assert $page) => $page
@@ -199,6 +200,7 @@ class BlogControllerTest extends TestCase
     {
         parent::setUp();
         $this->artisan('wink:migrate');
+        $this->paginationNumber = BlogController::getPaginationNumber();
     }
 
     public function teardown() : void

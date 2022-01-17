@@ -9,6 +9,9 @@ use Inertia\Inertia;
 
 class BlogController extends Controller
 {
+
+    private static int $paginationNumber = 3;
+
     public function index()
     {
         return Inertia::render('Blog/Index',
@@ -24,7 +27,8 @@ class BlogController extends Controller
         ->live()->whereSlug($slug)->first();
 
         if (! $post) {
-            return Inertia::render('Blog/Index', ['error' => true, 'posts' => $this->getBlogPosts(), 'filters' => null]);
+            return Inertia::render('Blog/Index',
+                ['error' => true, 'posts' => $this->getBlogPosts(), 'filters' => null,]);
         }
 
         return Inertia::render('Blog/Show', ['post' => $post]);
@@ -44,7 +48,12 @@ class BlogController extends Controller
             ->with('tags')
             ->live()
             ->orderBy('publish_date', 'DESC')
-            ->paginate(10)
+            ->paginate(self::getPaginationNumber())
             ->withQueryString();
+    }
+
+    public static function getPaginationNumber()
+    {
+        return self::$paginationNumber;
     }
 }
