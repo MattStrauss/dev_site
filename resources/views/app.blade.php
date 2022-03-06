@@ -17,12 +17,21 @@
           href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/agate.min.css">
     <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/highlight.min.js"></script>
     <script>
+
+        document.addEventListener('inertia:finish', (event) => {
+            document.querySelectorAll('pre').forEach((el) => {
+                hljs.highlightElement(el);
+            });
+        });
+
         document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelectorAll('pre').forEach((el) => {
                 hljs.highlightElement(el);
             });
         });
+
     </script>
+
 </head>
 <body class="bg-gray-700">
 @inertia
