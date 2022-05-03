@@ -137,10 +137,10 @@ class PageController extends Controller
 
     private function getSkills()
     {
-        $backend = ['PHP', 'SQL', 'MySQL', 'Laravel', 'Python', 'Django', 'Flask', 'C', 'C++', 'C#', 'Java', 'Spring Boot', 'Swift', 'Mips/Assembly', 'VHDL', 'Livewire'];
+        $backend = ['PHP', 'SQL', 'MySQL', 'Laravel', 'Python', 'Django', 'Flask', 'C', 'C++', 'C#', 'Java', 'Spring Boot', 'Swift', 'Livewire'];
         $frontEnd = ['Thymeleaf', 'HTML', 'Javascript', 'CSS', 'Tailwind', 'Bootstrap', 'Alpine.js', 'React.js', 'Vue.js', 'Inertia.js', 'Angular.js', 'Laravel Blade'];
         $testing = ['PHPUnit', 'JUnit', 'Laravel Dusk', 'Codeception', 'Jest', 'Selenium'];
-        $misc = ['Machine Learning', 'WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'Laravel Spark'];
+        $misc = ['Machine Learning', 'WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'Laravel Spark', 'Mips/Assembly', 'VHDL'];
 
 
         function sortAndReturn($array) {
