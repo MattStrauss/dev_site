@@ -83,6 +83,14 @@ class PageController extends Controller
                     'description' => "A tool to help students find course information and get course recommendations for the Software Engineering curriculum at the Pennsylvania State University."
                 ],
                 [
+                    'name' => 'CatGen',
+                    'skills' => ['flask', 'python', 'machineLearning', 'chart.js', 'tailwindCss'],
+                    'link' => 'https://github.com/MattStrauss/catgen',
+                    'img' => '/storage/images/catgen.png',
+                    'demo'  => 'https://screencast-o-matic.com/watch/c3fvV1VYpK3',
+                    'description' => "Uses machine learning to automatically infer a book's category/genre based on it's title and cover"
+                ],
+                [
                     'name' => 'Tetris',
                     'skills' => ['java'],
                     'link' => 'https://github.com/MattStrauss/tetris',
@@ -97,6 +105,14 @@ class PageController extends Controller
                     'img' => '/storage/images/devsite.png',
                     'demo'  => null,
                     'description' => "The site you are looking at right now! It was built with the amazing Inertia.js framework, which I highly recommend checking out."
+                ],
+                [
+                    'name' => 'Employee Directory',
+                    'skills' => ['vanillaJS', 'Jest', 'tailwindCSS'],
+                    'link' => 'https://github.com/MattStrauss/employee-directory',
+                    'img' => '/storage/images/employee-directory.png',
+                    'demo'  => null,
+                    'description' => "An employee directory (with some excellent computer scientists as employees) as a proof of concept for using Jest to test vanilla Javascript."
                 ],
                 [
                     'name' => 'Swift Grocery List',
@@ -121,10 +137,10 @@ class PageController extends Controller
 
     private function getSkills()
     {
-        $backend = ['PHP', 'SQL', 'MySQL', 'Laravel', 'Python', 'Django', 'C', 'C++', 'C#', 'Java', 'Spring Boot', 'Swift', 'Mips/Assembly', 'VHDL', 'Livewire'];
-        $frontEnd = ['HTML', 'Javascript', 'CSS', 'Tailwind', 'Bootstrap', 'Alpine.js', 'React.js', 'Vue.js', 'Inertia.js', 'Angular.js', 'Laravel Blade'];
+        $backend = ['PHP', 'SQL', 'MySQL', 'Laravel', 'Python', 'Django', 'Flask', 'C', 'C++', 'C#', 'Java', 'Spring Boot', 'Swift', 'Mips/Assembly', 'VHDL', 'Livewire'];
+        $frontEnd = ['Thymeleaf', 'HTML', 'Javascript', 'CSS', 'Tailwind', 'Bootstrap', 'Alpine.js', 'React.js', 'Vue.js', 'Inertia.js', 'Angular.js', 'Laravel Blade'];
         $testing = ['PHPUnit', 'JUnit', 'Laravel Dusk', 'Codeception', 'Jest', 'Selenium'];
-        $misc = ['WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'PHP Storm', 'Laravel Spark'];
+        $misc = ['Machine Learning', 'WordPress', 'Laravel Cashier', 'Laravel Nova', 'Laravel Forge', 'Laravel Spark'];
 
 
         function sortAndReturn($array) {
