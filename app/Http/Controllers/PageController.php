@@ -111,7 +111,7 @@ class PageController extends Controller
                     'skills' => ['vanillaJS', 'Jest', 'tailwindCSS'],
                     'link' => 'https://github.com/MattStrauss/employee-directory',
                     'img' => '/storage/images/employee-directory.png',
-                    'demo'  => null,
+                    'demo'  => 'https://screencast-o-matic.com/watch/c3hf20VYsCE',
                     'description' => "An employee directory (with some excellent computer scientists as employees) as a proof of concept for using Jest to test vanilla Javascript."
                 ],
                 [
