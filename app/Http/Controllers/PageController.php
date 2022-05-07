@@ -88,7 +88,7 @@ class PageController extends Controller
                     'link' => 'https://github.com/MattStrauss/catgen',
                     'img' => '/storage/images/catgen.png',
                     'demo'  => 'https://screencast-o-matic.com/watch/c3fvV1VYpK3',
-                    'description' => "Uses machine learning to automatically infer a book's category/genre based on it's title and cover"
+                    'description' => "Uses machine learning to automatically infer a book's category/genre based on its title and cover. Uses KNN algorithm and NLP."
                 ],
                 [
                     'name' => 'Tetris',
