@@ -108,7 +108,7 @@ class PageController extends Controller
                 ],
                 [
                     'name' => 'Employee Directory',
-                    'skills' => ['vanillaJS', 'Jest', 'tailwindCSS'],
+                    'skills' => ['vanillaJS', 'Jest', 'tailwindCss'],
                     'link' => 'https://github.com/MattStrauss/employee-directory',
                     'img' => '/storage/images/employee-directory.png',
                     'demo'  => 'https://screencast-o-matic.com/watch/c3hf20VYsCE',
@@ -124,7 +124,7 @@ class PageController extends Controller
                 ],
                 [
                     'name' => 'Dresser',
-                    'skills' => ['laravel', 'larevel livewire', 'tailwindCss'],
+                    'skills' => ['laravel', 'laravel livewire', 'tailwindCss'],
                     'link' => 'https://github.com/MattStrauss/dresser',
                     'img' => '/storage/images/dresser.png',
                     'demo'  => null,
