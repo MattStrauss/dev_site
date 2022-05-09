@@ -17,7 +17,10 @@
                 <div v-for="project in filteredProjects" class="max-w-lg rounded overflow-hidden bg-gray-200 mt-3 mb-3 shadow-lg mx-auto border-gray-700 border-2">
                     <img class="w-full" :src="project.img">
                     <div class="px-6 py-4 bg-gray-50 border-t-2 border-gray-300">
-                        <div class="font-bold text-xl mb-2 text-yellow-600"> <a :href="project.link" class="hover:text-yellow-700" v-text="project.name"></a></div>
+                        <div class="font-bold text-xl mb-2 text-yellow-600">
+                            <a v-if="project.link" :href="project.link" class="hover:text-yellow-700" v-text="project.name"></a>
+                            <span v-if="! project.link" v-text="project.name"></span>
+                        </div>
                         <p class="text-gray-700 text-base" v-text="project.description"></p>
                         <p v-if="project.demo" class="mt-4 text-gray-700">
                             <a :href="project.demo" class="hover:text-yellow-700"> <i class="fas fa-video"></i> Demo</a>

@@ -75,6 +75,14 @@ class PageController extends Controller
 
                 ],
                 [
+                    'name' => 'Capstone Management System',
+                    'skills' => ['java', 'springBoot', 'alpineJS', 'tailwindCss'],
+                    'link' => null,
+                    'img' => '/storage/images/capstone.png',
+                    'demo'  => 'https://screencast-o-matic.com/watch/c3hnleVYG71',
+                    'description' => "This was my Senior Capstone project. It was created to help instructors and faculty advisors more easily manage the school's Capstone senior design projects. It uses SSO and has deep integrations with the Canvas Learning Management System. "
+                ],
+                [
                     'name' => 'SWENG Scheduler',
                     'skills' => ['laravel', 'reactJS', 'd3js', 'tailwindCss'],
                     'link' => 'https://psuswengscheduler.com/',
