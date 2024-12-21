@@ -15,9 +15,3 @@ createInertiaApp({
     },
 })
 
-Inertia.on('navigate', (event) => {
-    if (Inertia.page.props.app_environment === 'production') {
-        window.fathom.trackPageview();
-    }
-})
-
