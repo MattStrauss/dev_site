@@ -21,12 +21,13 @@
                     <div class="w-16 border-t-4 border-yellow-500 text-center ml-auto mr-auto mt-3 mb-3"></div>
 
                     <p class="text-center text-gray-100 text-hairline pt-2 prose prose-lg prose-yellow max-w-full">
-                        I'm a freelance web developer with experience in a range of technologies, see below. While I typically work as a full stack developer, my skills are
-                        stronger on the backend. But, with the advent of new tools like <a href="https://inertiajs.com/" class="underline hover:text-yellow-500"> Inertia.js</a>
+                        I'm a freelance software developer with experience in a range of technologies, see below. While I typically work as a full stack developer, my skills are
+                        stronger on the server-side. But, with the advent of new tools like <a href="https://inertiajs.com/" class="underline hover:text-yellow-500"> Inertia.js</a>
                         and <a href="https://tailwindcss.com/" class="underline hover:text-yellow-500">TailwindCSS</a>, the frontend is becoming more and more fun. I am keenly
                         interested in open source software and <strong> a long time user/fan of automated testing</strong>.
-                        In addition to being a developer, I am currently studying Software Engineering at the Pennsylvania State University to gain deeper insights and a
-                        more rigorous understanding of core software concepts, architecture, etc.
+                        My educational background includes, earning a Bachelor of Science in Software Engineering Bachelors from the Pennsylvania State University and
+                        a Master of Science in Computer Science from the Georgia Institute of Technology.
+                        I am also a <a href="https://www.php.net/" class="underline hover:text-yellow-500">PHP</a> and <a href="https://laravel.com/" class="underline hover:text-yellow-500">Laravel</a> enthusiast.
                     </p>
 
                 </div>
