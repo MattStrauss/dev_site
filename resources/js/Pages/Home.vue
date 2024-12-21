@@ -25,7 +25,7 @@
                         stronger on the server-side. But, with the advent of new tools like <a href="https://inertiajs.com/" class="underline hover:text-yellow-500"> Inertia.js</a>
                         and <a href="https://tailwindcss.com/" class="underline hover:text-yellow-500">TailwindCSS</a>, the frontend is becoming more and more fun. I am keenly
                         interested in open source software and <strong> a long time user/fan of automated testing</strong>.
-                        My educational background includes, earning a Bachelor of Science in Software Engineering Bachelors from the Pennsylvania State University and
+                        My educational background includes; earning a Bachelor of Science in Software Engineering from the Pennsylvania State University and
                         a Master of Science in Computer Science from the Georgia Institute of Technology.
                         I am also a <a href="https://www.php.net/" class="underline hover:text-yellow-500">PHP</a> and <a href="https://laravel.com/" class="underline hover:text-yellow-500">Laravel</a> enthusiast.
                     </p>
